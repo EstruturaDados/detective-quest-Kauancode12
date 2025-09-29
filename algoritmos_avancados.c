@@ -71,12 +71,16 @@ int main() {
     Sala* biblioteca = criarSala("Biblioteca");
     Sala* cozinha = criarSala("Cozinha");
     Sala* sotao = criarSala("Sotão");
+    Sala* banheiro = criarSala("Banheiro");
+    Sala* despensa = criarSala("Despensa");
     Sala* jardim = criarSala("Jardim");
+    Sala* churrasqueira = criarSala("Churrasqueira");
 
     // Conectando as salas para formar a arvore binária.
     conectarSala(hall, biblioteca, cozinha);
-    conectarSala(biblioteca, sotao, NULL);
-    conectarSala(cozinha, NULL, jardim);
+    conectarSala(biblioteca, sotao, banheiro);
+    conectarSala(cozinha, despensa, jardim);
+    conectarSala(jardim, churrasqueira, NULL);
 
     // Começa a exploração na sala Hall de Entrada.
     explorarSalas(hall);
@@ -86,7 +90,10 @@ int main() {
     free(biblioteca);
     free(cozinha);
     free(sotao);
+    free(banheiro);
+    free(despensa);
     free(jardim);
+    free(churrasqueira);
 
     return 0;
 }
